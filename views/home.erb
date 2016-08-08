@@ -10,37 +10,39 @@
 <body>
 
 </body>
-</html><p>check this out!</p>
+</html>
+    <p>check this out!</p>
 
-<form>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <h2>Game Search</h2>
-                <div id="custom-search-input">
-                    <div class="input-group col-md-12">
-                        <input type="text" name="search" class="form-control input-lg" placeholder="Enter Game Title Here" />
-                        <span class="input-group-btn">
-                            <button class="btn btn-info btn-lg" type="button">
-                                <i class="glyphicon glyphicon-search"></i>
-                            </button>
-                        </span>
+    <form>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Game Search</h2>
+                    <div id="custom-search-input">
+                        <div class="input-group col-md-12">
+                            <input type="text" name="search" class="form-control input-lg" placeholder="Enter Game Title Here" />
+                            <span class="input-group-btn">
+                                <button class="btn btn-info btn-lg" type="button">
+                                    <i class="glyphicon glyphicon-search"></i>
+                                </button>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <button type="submit">Search it!</button>
-</form>
-<h1><%= @search.inspect %></h1>
-<% if @game_results.any? %>
-<ul>
-    <% @game_results.each do |game| %>
-    <li>
-        <img src="<%= game.thumb %>" alt="<%= game.title %>" height="150">
-        $<%= game.cheapest %>
-        <a href="http://www.cheapshark.com/redirect.php?dealID=<%=game.cheapest_deal_id%>"> Cheapest Deal Link </a>
-    </li>
-    <% end %>
+        <button type="submit">Search it!</button>
+    </form>
+    <h1><%= @search.inspect %></h1>
+    <% if @game_results.any? %>
     <ul>
+        <% @game_results.each do |game| %>
+        <li>
+            <img src="<%= game.thumb %>" alt="<%= game.title %>" height="150">
+            $<%= game.cheapest %>
+            || <%= game.title %> ||
+            <a href="http://www.cheapshark.com/redirect.php?dealID=<%=game.cheapest_deal_id%>"> Cheapest Deal Link </a>
+        </li>
         <% end %>
+        <ul>
+    <% end %>
